@@ -1,5 +1,5 @@
 .venv/
-.bottle/
+bottle/
 output_results/
 dist/
 build/

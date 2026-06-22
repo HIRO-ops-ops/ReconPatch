@@ -151,7 +151,7 @@ class ReConPatchModel(keras.Model):
 
 def greedy_k_center(features, coreset_ratio=0.01):
     """
-    💡 進捗表示を追加したコアセットサンプリング [4]
+        進捗表示を追加したコアセットサンプリング [4]
     """
     n = features.shape[0]
     num_centers = max(1, int(n * coreset_ratio))
@@ -222,7 +222,7 @@ class ReConPatchSpatialDetector:
                 epoch_loss += metrics["rc_loss"].numpy()
                 steps += 1
                 
-                # 💡 500バッチごと、またはエポックの最終バッチ時に経過を出力
+                # 500バッチごと、またはエポックの最終バッチ時に経過を出力
                 if steps % 500 == 0 or steps == num_batches:
                     current_loss = metrics["rc_loss"].numpy()
                     print(f"  [Epoch {epoch+1}/{epochs}] バッチ: {steps}/{num_batches} - 現在のバッチLoss: {current_loss:.4f}")
@@ -304,7 +304,6 @@ def run_pipeline(input_train_dir, input_test_dir, output_dir, image_size=(224, 2
     )
     detector.fit(spatial_train_features, epochs=5, batch_size=64)
 
-    # 💡 [進捗カウンタ] テスト画像推論の進行状況を見える化
     total_test = len(test_paths)
     print("\n--- テスト画像の異常スコアマップの生成と保存 ---")
     for idx, test_path in enumerate(test_paths):
@@ -341,7 +340,6 @@ def run_pipeline(input_train_dir, input_test_dir, output_dir, image_size=(224, 2
         plt.savefig(output_file_path, bbox_inches='tight')
         plt.close()
         
-        # 💡 [経過表示] 現在処理中の画像番号 / 全体数を表示
         print(f"  [{idx+1: >3} / {total_test}] 結果を保存しました: {output_file_path}")
 
     print("\nすべての推論処理と結果の保存が完了しました。")

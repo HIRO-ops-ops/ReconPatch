@@ -56,9 +56,11 @@ pip install -r requirement.txt
 ## 使い方
 
 1. **ディレクトリパスの確認:** ReconPatch.py 末尾の __main__ ブロックにおける入力パス・出力パスが、ご自身の環境のパスと一致しているか確認する。
+```bash
 INPUT_TRAIN_DIR = "/home/medicot/ReconPatch/bottle/train/good"
 INPUT_TEST_DIR = "/home/medicot/ReconPatch/bottle/test"
 OUTPUT_DIR = "/home/medicot/ReconPatch/bottle/output_results"
+```
 2. **スクリプトの実行:**準備ができたら、仮想環境が有効な状態で以下のコマンドを実行し、スクリプトを走らせる。
 ```bash
 python ReconPatch.py
